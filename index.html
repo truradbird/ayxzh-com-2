@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 产品说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f0f6f9;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1c2e3a;
+      line-height: 1.6;
+      padding: 2rem 1.2rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    /* 顶部标识 */
+    .wordmark {
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #2d7f8c;
+      border-left: 3px solid #2d7f8c;
+      padding-left: 0.75rem;
+      margin-bottom: 2rem;
+      font-weight: 500;
+    }
+
+    /* Hero */
+    .hero {
+      margin-bottom: 3.2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      line-height: 1.2;
+      color: #0f2a33;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 span {
+      color: #147b8a;
+    }
+
+    .hero .subhead {
+      margin-top: 1rem;
+      font-size: 1.15rem;
+      color: #2f4b57;
+      max-width: 680px;
+      background: rgba(20, 123, 138, 0.06);
+      padding: 0.8rem 1.2rem;
+      border-radius: 40px;
+      border-left: 4px solid #2d7f8c;
+    }
+
+    /* 摘要卡片网格 */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.6rem;
+      margin: 2.8rem 0 3rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.8rem 1.5rem;
+      box-shadow: 0 6px 18px rgba(0, 40, 50, 0.05);
+      border: 1px solid #dce8ed;
+      transition: box-shadow 0.2s, transform 0.15s;
+    }
+
+    .card:hover {
+      box-shadow: 0 12px 28px rgba(22, 110, 120, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .card .icon {
+      display: inline-block;
+      width: 42px;
+      height: 42px;
+      background: #dff0f3;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      color: #147b8a;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #0e2d38;
+    }
+
+    .card p {
+      font-size: 0.96rem;
+      color: #2f4f5c;
+    }
+
+    .card .tag {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      background: #e2f0f3;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      color: #136f7c;
+      font-weight: 500;
+    }
+
+    /* 使用建议区块 + 引用样式 */
+    .advice-block {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 2rem 2rem 2.4rem;
+      margin: 2.8rem 0;
+      border: 1px solid #d2e3e9;
+      box-shadow: 0 4px 16px rgba(0,50,60,0.03);
+    }
+
+    .advice-block h2 {
+      font-size: 1.6rem;
+      font-weight: 550;
+      margin-bottom: 1.2rem;
+      color: #0a2d37;
+      letter-spacing: -0.01em;
+    }
+
+    .advice-block h2 small {
+      font-weight: 400;
+      font-size: 1rem;
+      color: #3e6b78;
+      margin-left: 0.6rem;
+    }
+
+    .advice-list {
+      list-style: none;
+    }
+
+    .advice-list li {
+      margin-bottom: 1rem;
+      padding-left: 1.6rem;
+      position: relative;
+      font-size: 1rem;
+      color: #1a3f4b;
+    }
+
+    .advice-list li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #238a9c;
+      font-weight: bold;
+    }
+
+    .advice-list strong {
+      color: #045b69;
+    }
+
+    .inline-link-sentence {
+      margin: 1.6rem 0 0.4rem;
+      padding: 1rem 1.4rem;
+      background: #ecf5f8;
+      border-radius: 60px;
+      font-size: 1rem;
+      display: inline-block;
+      border-left: 4px solid #238a9c;
+    }
+
+    .inline-link-sentence a {
+      color: #116b7a;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1.5px;
+      font-weight: 500;
+    }
+
+    .inline-link-sentence a:hover {
+      color: #0b4d58;
+    }
+
+    /* 可信说明 / FAQ 摘要 */
+    .faq-note {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      margin: 3rem 0 2.5rem;
+      background: #eef6f9;
+      padding: 2rem 2rem 2.2rem;
+      border-radius: 28px;
+    }
+
+    .faq-item {
+      break-inside: avoid;
+    }
+
+    .faq-item h4 {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #0f303c;
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .faq-item h4::before {
+      content: "?";
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background: #b7d7df;
+      color: #0c4d59;
+      border-radius: 30px;
+      text-align: center;
+      line-height: 24px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .faq-item p {
+      margin-left: 32px;
+      font-size: 0.93rem;
+      color: #2b5563;
+    }
+
+    .footnote {
+      margin-top: 2.2rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid #cbdde4;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #3f6b79;
+    }
+
+    .footnote a {
+      color: #117184;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      body {
+        padding: 1.2rem 0.9rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero .subhead {
+        font-size: 1rem;
+        padding: 0.6rem 1rem;
+      }
+      .grid-cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .advice-block {
+        padding: 1.6rem 1.2rem;
+      }
+      .faq-note {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        padding: 1.6rem 1.2rem;
+      }
+      .inline-link-sentence {
+        font-size: 0.95rem;
+        padding: 0.8rem 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+      .card {
+        padding: 1.4rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="wordmark">产品说明 · 持续关注</div>
+
+    <section class="hero">
+      <h1>发现 · <span>爱游戏</span></h1>
+      <div class="subhead">
+        一份面向再次访问与长期留存的轻量介绍 —— 不追求喧哗，只在意你每一次回来的理由。
+      </div>
+    </section>
+
+    <!-- 网格卡片：亮点摘要 -->
+    <div class="grid-cards">
+      <div class="card">
+        <div class="icon">📌</div>
+        <h3>收藏即索引</h3>
+        <p>将 <a href="https://ayxzh.com" style="color:#147b8a;text-decoration:underline;text-underline-offset:2px;">爱游戏</a> 加入书签，就是给自己留一个安静的入口。内容持续迭代，但入口始终不变。</p>
+        <span class="tag">固定锚点</span>
+      </div>
+      <div class="card">
+        <div class="icon">🔄</div>
+        <h3>回访友好</h3>
+        <p>无论隔了几天还是几周，页面结构与信息层级保持一贯。无需重新适应，每次回来都像翻到熟悉的章节。</p>
+        <span class="tag">低认知负荷</span>
+      </div>
+      <div class="card">
+        <div class="icon">🧩</div>
+        <h3>场景化信息</h3>
+        <p>不堆砌功能，而是围绕「再次访问」这个动作做内容组织。你关心的，是如何快速衔接上一次的浏览脉络。</p>
+        <span class="tag">上下文延续</span>
+      </div>
+    </div>
+
+    <!-- 使用建议区块 (从再次访问和收藏切入) -->
+    <div class="advice-block">
+      <h2>使用建议 <small>针对再次访问与持续关注</small></h2>
+      <ul class="advice-list">
+        <li><strong>收藏至浏览器书签栏</strong> —— 给 <a href="https://ayxzh.com" style="color:#045b69;text-decoration:underline;">爱游戏</a> 一个专属文件夹，或者直接放在书签栏首屏。下次想起时，点击即达，无需搜索。</li>
+        <li><strong>定期回来浏览增量</strong> —— 站点内容并非一成不变，但变化克制且可预期。每隔一两周回访，你会发现细微更新，又不至于迷失方向。</li>
+        <li><strong>利用“阅读轨迹”心理</strong> —— 把该页面当作一个知识便签。再次访问时，先花 30 秒扫读标题与卡片，快速定位上次离开的位置。</li>
+      </ul>
+      <div class="inline-link-sentence">
+        如果你正在寻找一个值得长期留意、又不会过度打扰的站点，不妨将 <a href="https://ayxzh.com">爱游戏</a> 放入你的关注列表。
+      </div>
+    </div>
+
+    <!-- FAQ 摘要 / 可信但克制的说明 -->
+    <div class="faq-note">
+      <div class="faq-item">
+        <h4>内容会频繁变动吗？</h4>
+        <p>不会。我们倾向于渐进式调整，而非颠覆式改版。每次更新都会保留核心结构，你可以依赖之前的浏览经验。</p>
+      </div>
+      <div class="faq-item">
+        <h4>是否需要注册或登录？</h4>
+        <p>绝大多数内容无需任何认证即可阅读。持续关注不需要建立账户，收藏链接即可。</p>
+      </div>
+      <div class="faq-item">
+        <h4>移动端和桌面体验一致吗？</h4>
+        <p>是的，布局针对手机与电脑均做了适配。卡片、间距、字号在两种场景下都经过测试。</p>
+      </div>
+      <div class="faq-item">
+        <h4>我如何确认是最新版？</h4>
+        <p>直接访问 <a href="https://ayxzh.com" style="color:#0c5d6b;text-decoration:underline;">爱游戏</a> 即可看到当前版本。页面没有版本号，但内容日期和节奏会暗示新鲜度。</p>
+      </div>
+    </div>
+
+    <!-- 收尾 / 再次访问提示 -->
+    <div class="footnote">
+      <p>无论你是第一次到访，还是第无数次回来，这里都保持开放与安静。<br>
+      下次访问时，直接从书签或历史记录进入 <a href="https://ayxzh.com">爱游戏</a> 即可。</p>
+      <p style="margin-top:0.8rem;font-size:0.8rem;opacity:0.7;">产品说明风格 · 持续关注导向</p>
+    </div>
+  </div>
+</body>
+</html>

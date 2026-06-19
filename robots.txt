@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://truradbird.github.io/ayxzh-com-2/sitemap.xml
